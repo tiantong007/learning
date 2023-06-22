@@ -3,10 +3,11 @@ package com.eyy.learning.service.impl;
 import com.eyy.learning.domain.User;
 import com.eyy.learning.mapper.UserMapper;
 import com.eyy.learning.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import javax.annotation.Resource;
+
 
 /**
  * (User)表服务实现类
@@ -16,7 +17,7 @@ import javax.annotation.Resource;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     /**

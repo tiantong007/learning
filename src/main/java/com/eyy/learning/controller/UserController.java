@@ -2,11 +2,11 @@ package com.eyy.learning.controller;
 
 import com.eyy.learning.domain.User;
 import com.eyy.learning.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import javax.annotation.Resource;
 
 /**
  * (User)表控制层
@@ -20,7 +20,7 @@ public class UserController {
     /**
      * 服务对象
      */
-    @Resource
+    @Autowired
     private UserService userService;
 
     /**
