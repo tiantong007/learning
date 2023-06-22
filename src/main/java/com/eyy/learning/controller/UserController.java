@@ -28,7 +28,7 @@ public class UserController {
      *
      * @return 实例对象集合
      */
-    @GetMapping
+    @GetMapping("queryall")
     public ResponseEntity<List> queryAll() {
         return ResponseEntity.ok(this.userService.queryAll());
     }
@@ -39,7 +39,7 @@ public class UserController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
+    @GetMapping("query/{id}")
     public ResponseEntity<User> queryById(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(this.userService.queryById(id));
     }
@@ -50,7 +50,7 @@ public class UserController {
      * @param user 实体
      * @return 新增结果
      */
-    @PostMapping
+    @PostMapping("add")
     public ResponseEntity<User> add(User user) {
         return ResponseEntity.ok(this.userService.insert(user));
     }
@@ -61,7 +61,7 @@ public class UserController {
      * @param user 实体
      * @return 编辑结果
      */
-    @PutMapping
+    @PutMapping("update")
     public ResponseEntity<User> edit(User user) {
         return ResponseEntity.ok(this.userService.update(user));
     }
@@ -72,7 +72,7 @@ public class UserController {
      * @param id 主键
      * @return 删除是否成功
      */
-    @DeleteMapping
+    @DeleteMapping("delete")
     public ResponseEntity<Boolean> deleteById(Integer id) {
         return ResponseEntity.ok(this.userService.deleteById(id));
     }
