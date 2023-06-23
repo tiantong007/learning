@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * (User)表控制层
  *
  * @author tiantong007
- * @since 2023-06-23 11:45:15
+ * @since 2023-06-23 13:29:20
  */
 @RestController
 @RequestMapping("user")
@@ -27,7 +27,7 @@ public class UserController {
      * @param user 筛选条件
      * @return 查询结果
      */
-    @GetMapping("query")
+    @GetMapping("queryall")
     public R queryAll(User user) {
         return this.userService.queryAll(user);
     }
@@ -38,7 +38,7 @@ public class UserController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("/query/{id}")
+    @GetMapping("query/{id}")
     public R queryById(@PathVariable("id") Integer id) {
         return this.userService.queryById(id);
     }

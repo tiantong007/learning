@@ -10,7 +10,7 @@ import java.util.List;
  * (User)表数据库访问层
  *
  * @author tiantong007
- * @since 2023-06-23 11:45:15
+ * @since 2023-06-23 13:29:19
  */
 @Mapper
 public interface UserMapper {

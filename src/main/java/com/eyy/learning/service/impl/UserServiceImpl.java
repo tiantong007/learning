@@ -7,11 +7,13 @@ import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * (User)表服务实现类
  *
  * @author tiantong007
- * @since 2023-06-23 11:45:15
+ * @since 2023-06-23 13:29:19
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {

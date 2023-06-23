@@ -7,9 +7,8 @@ import com.eyy.learning.util.R;
  * (User)表服务接口
  *
  * @author tiantong007
- * @since 2023-06-23 11:45:15
+ * @since 2023-06-23 13:29:19
  */
-
 public interface UserService {
 
     /**
