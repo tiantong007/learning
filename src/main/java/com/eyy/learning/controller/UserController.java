@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * (User)表控制层
  *
  * @author tiantong007
- * @since 2023-06-23 13:29:20
+ * @since 2023-06-23 13:35:13
  */
 @RestController
 @RequestMapping("user")
@@ -71,8 +71,8 @@ public class UserController {
      * @param id 主键
      * @return 删除是否成功
      */
-    @DeleteMapping("delete")
-    public R deleteById(Integer id) {
+    @DeleteMapping("delete/{id}")
+    public R deleteById(@PathVariable("id") Integer id) {
         return this.userService.deleteById(id);
     }
 
