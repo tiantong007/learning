@@ -2,17 +2,15 @@ package com.eyy.learning.controller;
 
 import com.eyy.learning.domain.User;
 import com.eyy.learning.service.UserService;
+import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * (User)表控制层
  *
  * @author tiantong007
- * @since 2023-06-22 21:29:03
+ * @since 2023-06-23 11:45:15
  */
 @RestController
 @RequestMapping("user")
@@ -24,13 +22,14 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 查询所有数据
+     * 全查询
      *
-     * @return 实例对象集合
+     * @param user 筛选条件
+     * @return 查询结果
      */
-    @GetMapping("queryall")
-    public ResponseEntity<List> queryAll() {
-        return ResponseEntity.ok(this.userService.queryAll());
+    @GetMapping("query")
+    public R queryAll(User user) {
+        return this.userService.queryAll(user);
     }
 
     /**
@@ -39,9 +38,9 @@ public class UserController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("query/{id}")
-    public ResponseEntity<User> queryById(@PathVariable("id") Integer id) {
-        return ResponseEntity.ok(this.userService.queryById(id));
+    @GetMapping("/query/{id}")
+    public R queryById(@PathVariable("id") Integer id) {
+        return this.userService.queryById(id);
     }
 
     /**
@@ -50,9 +49,9 @@ public class UserController {
      * @param user 实体
      * @return 新增结果
      */
-    @PostMapping("add")
-    public ResponseEntity<User> add(User user) {
-        return ResponseEntity.ok(this.userService.insert(user));
+    @PostMapping("insert")
+    public R add(@RequestBody User user) {
+        return this.userService.insert(user);
     }
 
     /**
@@ -62,8 +61,8 @@ public class UserController {
      * @return 编辑结果
      */
     @PutMapping("update")
-    public ResponseEntity<User> edit(User user) {
-        return ResponseEntity.ok(this.userService.update(user));
+    public R edit(@RequestBody User user) {
+        return this.userService.update(user);
     }
 
     /**
@@ -73,8 +72,8 @@ public class UserController {
      * @return 删除是否成功
      */
     @DeleteMapping("delete")
-    public ResponseEntity<Boolean> deleteById(Integer id) {
-        return ResponseEntity.ok(this.userService.deleteById(id));
+    public R deleteById(Integer id) {
+        return this.userService.deleteById(id);
     }
 
 }

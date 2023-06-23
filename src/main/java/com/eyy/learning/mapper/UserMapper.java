@@ -1,8 +1,8 @@
 package com.eyy.learning.mapper;
 
 import com.eyy.learning.domain.User;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,17 +10,10 @@ import java.util.List;
  * (User)表数据库访问层
  *
  * @author tiantong007
- * @since 2023-06-22 21:29:03
+ * @since 2023-06-23 11:45:15
  */
 @Mapper
 public interface UserMapper {
-
-    /**
-     * 查询所有数据
-     *
-     * @return 实例对象集合
-     */
-    List<User> queryAll();
 
     /**
      * 通过ID查询单条数据
@@ -29,6 +22,14 @@ public interface UserMapper {
      * @return 实例对象
      */
     User queryById(Integer id);
+
+    /**
+     * 查询指定行数据
+     *
+     * @param user 查询条件
+     * @return 对象列表
+     */
+    List<User> queryAll(User user);
 
     /**
      * 统计总行数

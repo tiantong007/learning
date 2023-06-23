@@ -8,19 +8,8 @@
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="email" column="email" jdbcType="VARCHAR"/>
         <result property="role" column="role" jdbcType="VARCHAR"/>
-        <result property="balance" column="balance" jdbcType="INTEGER"/>
+        <result property="balance" column="balance" jdbcType="NUMERIC"/>
     </resultMap>
-
-    <!--查询所有-->
-    <select id="queryAll" resultMap="UserMap">
-        select id,
-               username,
-               password,
-               email,
-               role,
-               balance
-        from user
-    </select>
 
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
@@ -35,7 +24,7 @@
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="UserMap">
+    <select id="queryAll" resultMap="UserMap">
         select
         id, username, password, email, role, balance
         from user
@@ -59,12 +48,11 @@
                 and balance = #{balance}
             </if>
         </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
     </select>
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
-        select count(1)
+        select count(*)
         from user
         <where>
             <if test="id != null">

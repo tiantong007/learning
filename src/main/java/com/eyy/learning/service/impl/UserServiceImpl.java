@@ -3,32 +3,20 @@ package com.eyy.learning.service.impl;
 import com.eyy.learning.domain.User;
 import com.eyy.learning.mapper.UserMapper;
 import com.eyy.learning.service.UserService;
+import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 
 /**
  * (User)表服务实现类
  *
  * @author tiantong007
- * @since 2023-06-22 21:29:03
+ * @since 2023-06-23 11:45:15
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
-
-    /**
-     * 查询所有数据
-     *
-     * @return 实例对象集合
-     */
-    @Override
-    public List<User> queryAll() {
-        return this.userMapper.queryAll();
-    }
 
     /**
      * 通过ID查询单条数据
@@ -37,8 +25,19 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User queryById(Integer id) {
-        return this.userMapper.queryById(id);
+    public R queryById(Integer id) {
+        return R.ok().setData(this.userMapper.queryById(id));
+    }
+
+    /**
+     * 全查询
+     *
+     * @param user 筛选条件
+     * @return 查询结果
+     */
+    @Override
+    public R queryAll(User user) {
+        return R.ok().setData(this.userMapper.queryAll(user));
     }
 
     /**
@@ -48,9 +47,9 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User insert(User user) {
+    public R insert(User user) {
         this.userMapper.insert(user);
-        return user;
+        return R.ok().setData(user);
     }
 
     /**
@@ -60,9 +59,9 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User update(User user) {
+    public R update(User user) {
         this.userMapper.update(user);
-        return this.queryById(user.getId());
+        return R.ok().setData(this.queryById(user.getId()));
     }
 
     /**
@@ -72,8 +71,9 @@ public class UserServiceImpl implements UserService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer id) {
-        return this.userMapper.deleteById(id) > 0;
+    public R deleteById(Integer id) {
+        boolean del = this.userMapper.deleteById(id) > 0;
+        return R.ok().setData(del);
     }
 }
 

@@ -1,23 +1,16 @@
 package com.eyy.learning.service;
 
 import com.eyy.learning.domain.User;
-
-import java.util.List;
+import com.eyy.learning.util.R;
 
 /**
  * (User)表服务接口
  *
  * @author tiantong007
- * @since 2023-06-22 21:29:03
+ * @since 2023-06-23 11:45:15
  */
-public interface UserService {
 
-    /**
-     * 查询所有数据
-     *
-     * @return 实例对象集合
-     */
-    List<User> queryAll();
+public interface UserService {
 
     /**
      * 通过ID查询单条数据
@@ -25,7 +18,15 @@ public interface UserService {
      * @param id 主键
      * @return 实例对象
      */
-    User queryById(Integer id);
+    R queryById(Integer id);
+
+    /**
+     * 全查询
+     *
+     * @param user 筛选条件
+     * @return 查询结果
+     */
+    R queryAll(User user);
 
     /**
      * 新增数据
@@ -33,7 +34,7 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    User insert(User user);
+    R insert(User user);
 
     /**
      * 修改数据
@@ -41,7 +42,7 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    User update(User user);
+    R update(User user);
 
     /**
      * 通过主键删除数据
@@ -49,7 +50,7 @@ public interface UserService {
      * @param id 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer id);
+    R deleteById(Integer id);
 
 }
 
