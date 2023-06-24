@@ -50,6 +50,7 @@ public class MessageController {
      * @return 新增结果
      */
     @PostMapping("insert")
+    //UID RID为空
     public R add(@RequestBody Message message) {
         return this.messageService.insert(message);
     }
@@ -61,6 +62,7 @@ public class MessageController {
      * @return 编辑结果
      */
     @PutMapping("update")
+    //UID RID为空
     public R edit(@RequestBody Message message) {
         return this.messageService.update(message);
     }
