@@ -10,7 +10,7 @@ import java.util.List;
  * (Power)表数据库访问层
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:35
+ * @since 2023-06-24 17:29:02
  */
 @Mapper
 public interface PowerMapper {

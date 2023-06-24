@@ -7,7 +7,7 @@ import com.eyy.learning.util.R;
  * (Power)表服务接口
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:29:02
  */
 public interface PowerService {
 

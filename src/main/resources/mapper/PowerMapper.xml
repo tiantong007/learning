@@ -5,7 +5,7 @@
     <resultMap type="com.eyy.learning.domain.Power" id="PowerMap">
         <result property="pId" column="p_id" jdbcType="INTEGER"/>
         <result property="role" column="role" jdbcType="VARCHAR"/>
-        <result property="pLevel" column="p_level" jdbcType="VARCHAR"/>
+        <result property="pLevel" column="p_level" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
@@ -29,7 +29,7 @@
             <if test="role != null and role != ''">
                 and role = #{role}
             </if>
-            <if test="pLevel != null and pLevel != ''">
+            <if test="pLevel != null">
                 and p_level = #{pLevel}
             </if>
         </where>
@@ -46,7 +46,7 @@
             <if test="role != null and role != ''">
                 and role = #{role}
             </if>
-            <if test="pLevel != null and pLevel != ''">
+            <if test="pLevel != null">
                 and p_level = #{pLevel}
             </if>
         </where>
@@ -84,7 +84,7 @@
             <if test="role != null and role != ''">
                 role = #{role},
             </if>
-            <if test="pLevel != null and pLevel != ''">
+            <if test="pLevel != null">
                 p_level = #{pLevel},
             </if>
         </set>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * (Power)表控制层
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:29:02
  */
 @RestController
 @RequestMapping("power")

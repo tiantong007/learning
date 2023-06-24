@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * (Power)表服务实现类
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:29:02
  */
 @Service("powerService")
 public class PowerServiceImpl implements PowerService {
