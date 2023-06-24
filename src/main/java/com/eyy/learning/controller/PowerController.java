@@ -61,6 +61,7 @@ public class PowerController {
      * @return 编辑结果
      */
     @PutMapping("update")
+    //bug
     public R edit(@RequestBody Power power) {
         return this.powerService.update(power);
     }
