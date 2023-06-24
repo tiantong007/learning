@@ -1,15 +1,15 @@
 package com.eyy.learning.service;
 
-import com.eyy.learning.domain.User;
+import com.eyy.learning.domain.Message;
 import com.eyy.learning.util.R;
 
 /**
- * (User)表服务接口
+ * (Message)表服务接口
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:09:35
  */
-public interface UserService {
+public interface MessageService {
 
     /**
      * 通过ID查询单条数据
@@ -22,26 +22,26 @@ public interface UserService {
     /**
      * 全查询
      *
-     * @param user 筛选条件
+     * @param message 筛选条件
      * @return 查询结果
      */
-    R queryAll(User user);
+    R queryAll(Message message);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param message 实例对象
      * @return 实例对象
      */
-    R insert(User user);
+    R insert(Message message);
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param message 实例对象
      * @return 实例对象
      */
-    R update(User user);
+    R update(Message message);
 
     /**
      * 通过主键删除数据

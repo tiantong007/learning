@@ -1,35 +1,35 @@
 package com.eyy.learning.controller;
 
-import com.eyy.learning.domain.User;
-import com.eyy.learning.service.UserService;
+import com.eyy.learning.domain.Course;
+import com.eyy.learning.service.CourseService;
 import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * (User)表控制层
+ * (Course)表控制层
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:09:35
  */
 @RestController
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("course")
+public class CourseController {
     /**
      * 服务对象
      */
     @Autowired
-    private UserService userService;
+    private CourseService courseService;
 
     /**
      * 全查询
      *
-     * @param user 筛选条件
+     * @param course 筛选条件
      * @return 查询结果
      */
     @GetMapping("queryall")
-    public R queryAll(User user) {
-        return this.userService.queryAll(user);
+    public R queryAll(Course course) {
+        return this.courseService.queryAll(course);
     }
 
     /**
@@ -40,29 +40,29 @@ public class UserController {
      */
     @GetMapping("query/{id}")
     public R queryById(@PathVariable("id") Integer id) {
-        return this.userService.queryById(id);
+        return this.courseService.queryById(id);
     }
 
     /**
      * 新增数据
      *
-     * @param user 实体
+     * @param course 实体
      * @return 新增结果
      */
     @PostMapping("insert")
-    public R add(@RequestBody User user) {
-        return this.userService.insert(user);
+    public R add(@RequestBody Course course) {
+        return this.courseService.insert(course);
     }
 
     /**
      * 编辑数据
      *
-     * @param user 实体
+     * @param course 实体
      * @return 编辑结果
      */
     @PutMapping("update")
-    public R edit(@RequestBody User user) {
-        return this.userService.update(user);
+    public R edit(@RequestBody Course course) {
+        return this.courseService.update(course);
     }
 
     /**
@@ -73,7 +73,7 @@ public class UserController {
      */
     @DeleteMapping("delete/{id}")
     public R deleteById(@PathVariable("id") Integer id) {
-        return this.userService.deleteById(id);
+        return this.courseService.deleteById(id);
     }
 
 }

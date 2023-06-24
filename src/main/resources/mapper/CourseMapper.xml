@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eyy.learning.mapper.CourseMapper">
+
+    <resultMap type="com.eyy.learning.domain.Course" id="CourseMap">
+        <result property="cId" column="c_id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="NUMERIC"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+        <result property="endDate" column="end_date" jdbcType="TIMESTAMP"/>
+        <result property="teacher" column="teacher" jdbcType="VARCHAR"/>
+        <result property="techerId" column="techer_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CourseMap">
+        select c_id,
+               title,
+               description,
+               price,
+               type,
+               start_date,
+               end_date,
+               teacher,
+               techer_id
+        from course
+        where c_id = #{cId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAll" resultMap="CourseMap">
+        select
+        c_id, title, description, price, type, start_date, end_date, teacher, techer_id
+        from course
+        <where>
+            <if test="cId != null">
+                and c_id = #{cId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="startDate != null">
+                and start_date = #{startDate}
+            </if>
+            <if test="endDate != null">
+                and end_date = #{endDate}
+            </if>
+            <if test="teacher != null and teacher != ''">
+                and teacher = #{teacher}
+            </if>
+            <if test="techerId != null">
+                and techer_id = #{techerId}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(*)
+        from course
+        <where>
+            <if test="cId != null">
+                and c_id = #{cId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="startDate != null">
+                and start_date = #{startDate}
+            </if>
+            <if test="endDate != null">
+                and end_date = #{endDate}
+            </if>
+            <if test="teacher != null and teacher != ''">
+                and teacher = #{teacher}
+            </if>
+            <if test="techerId != null">
+                and techer_id = #{techerId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="cId" useGeneratedKeys="true">
+        insert into course(title, description, price, type, start_date, end_date, teacher, techer_id)
+        values (#{title}, #{description}, #{price}, #{type}, #{startDate}, #{endDate}, #{teacher}, #{techerId})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="cId" useGeneratedKeys="true">
+        insert into course(title, description, price, type, start_date, end_date, teacher, techer_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.title}, #{entity.description}, #{entity.price}, #{entity.type}, #{entity.startDate},
+            #{entity.endDate}, #{entity.teacher}, #{entity.techerId})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="cId" useGeneratedKeys="true">
+        insert into course(title, description, price, type, start_date, end_date, teacher, techer_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.title}, #{entity.description}, #{entity.price}, #{entity.type}, #{entity.startDate},
+            #{entity.endDate}, #{entity.teacher}, #{entity.techerId})
+        </foreach>
+        on duplicate key update
+        title = values(title),
+        description = values(description),
+        price = values(price),
+        type = values(type),
+        start_date = values(start_date),
+        end_date = values(end_date),
+        teacher = values(teacher),
+        techer_id = values(techer_id)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update course
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="startDate != null">
+                start_date = #{startDate},
+            </if>
+            <if test="endDate != null">
+                end_date = #{endDate},
+            </if>
+            <if test="teacher != null and teacher != ''">
+                teacher = #{teacher},
+            </if>
+            <if test="techerId != null">
+                techer_id = #{techerId},
+            </if>
+        </set>
+        where c_id = #{cId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from course
+        where c_id = #{cId}
+    </delete>
+
+</mapper>
+
+

@@ -1,15 +1,15 @@
 package com.eyy.learning.service;
 
-import com.eyy.learning.domain.User;
+import com.eyy.learning.domain.Certificate;
 import com.eyy.learning.util.R;
 
 /**
- * (User)表服务接口
+ * (Certificate)表服务接口
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:09:33
  */
-public interface UserService {
+public interface CertificateService {
 
     /**
      * 通过ID查询单条数据
@@ -22,26 +22,26 @@ public interface UserService {
     /**
      * 全查询
      *
-     * @param user 筛选条件
+     * @param certificate 筛选条件
      * @return 查询结果
      */
-    R queryAll(User user);
+    R queryAll(Certificate certificate);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param certificate 实例对象
      * @return 实例对象
      */
-    R insert(User user);
+    R insert(Certificate certificate);
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param certificate 实例对象
      * @return 实例对象
      */
-    R update(User user);
+    R update(Certificate certificate);
 
     /**
      * 通过主键删除数据

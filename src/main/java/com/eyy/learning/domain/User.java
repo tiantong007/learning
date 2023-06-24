@@ -10,13 +10,13 @@ import java.io.Serializable;
  * (User)实体类
  *
  * @author tiantong007
- * @since 2023-06-23 13:29:19
+ * @since 2023-06-24 17:09:36
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
-    private static final long serialVersionUID = 693673176426236787L;
+    private static final long serialVersionUID = -80026595489818751L;
     /**
      * 用户id
      */

@@ -1,35 +1,35 @@
 package com.eyy.learning.controller;
 
-import com.eyy.learning.domain.User;
-import com.eyy.learning.service.UserService;
+import com.eyy.learning.domain.Comment;
+import com.eyy.learning.service.CommentService;
 import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * (User)表控制层
+ * (Comment)表控制层
  *
  * @author tiantong007
- * @since 2023-06-24 17:09:36
+ * @since 2023-06-24 17:09:34
  */
 @RestController
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("comment")
+public class CommentController {
     /**
      * 服务对象
      */
     @Autowired
-    private UserService userService;
+    private CommentService commentService;
 
     /**
      * 全查询
      *
-     * @param user 筛选条件
+     * @param comment 筛选条件
      * @return 查询结果
      */
     @GetMapping("queryall")
-    public R queryAll(User user) {
-        return this.userService.queryAll(user);
+    public R queryAll(Comment comment) {
+        return this.commentService.queryAll(comment);
     }
 
     /**
@@ -40,29 +40,29 @@ public class UserController {
      */
     @GetMapping("query/{id}")
     public R queryById(@PathVariable("id") Integer id) {
-        return this.userService.queryById(id);
+        return this.commentService.queryById(id);
     }
 
     /**
      * 新增数据
      *
-     * @param user 实体
+     * @param comment 实体
      * @return 新增结果
      */
     @PostMapping("insert")
-    public R add(@RequestBody User user) {
-        return this.userService.insert(user);
+    public R add(@RequestBody Comment comment) {
+        return this.commentService.insert(comment);
     }
 
     /**
      * 编辑数据
      *
-     * @param user 实体
+     * @param comment 实体
      * @return 编辑结果
      */
     @PutMapping("update")
-    public R edit(@RequestBody User user) {
-        return this.userService.update(user);
+    public R edit(@RequestBody Comment comment) {
+        return this.commentService.update(comment);
     }
 
     /**
@@ -73,7 +73,7 @@ public class UserController {
      */
     @DeleteMapping("delete/{id}")
     public R deleteById(@PathVariable("id") Integer id) {
-        return this.userService.deleteById(id);
+        return this.commentService.deleteById(id);
     }
 
 }
