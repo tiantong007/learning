@@ -64,7 +64,7 @@ public class MessageController {
     @PutMapping("update")
     //UID RID为空
     public R edit(@RequestBody Message message) {
-        System.out.println(message);
+        System.out.println("aaaaaaaaa"+message);
         return this.messageService.update(message);
     }
 
