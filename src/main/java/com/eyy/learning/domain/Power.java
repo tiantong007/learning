@@ -1,5 +1,6 @@
 package com.eyy.learning.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Power implements Serializable {
     /**
      * 权限id
      */
+    @JsonProperty(value = "pId")
     private Integer pId;
     /**
      * 角色类型
@@ -28,6 +30,7 @@ public class Power implements Serializable {
     /**
      * 权限等级
      */
+    @JsonProperty(value = "pLevel")
     private Integer pLevel;
 }
 

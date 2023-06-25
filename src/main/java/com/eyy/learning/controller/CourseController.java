@@ -62,6 +62,8 @@ public class CourseController {
      */
     @PutMapping("update")
     public R edit(@RequestBody Course course) {
+        //日期格式为  "2023-06-25T01:09:23"
+        System.out.println("更新数据-----------"+course);
         return this.courseService.update(course);
     }
 
