@@ -11,7 +11,7 @@
  Target Server Version : 80033
  File Encoding         : 65001
 
- Date: 24/06/2023 17:44:35
+ Date: 25/06/2023 11:51:32
 */
 
 SET NAMES utf8mb4;
@@ -34,8 +34,9 @@ CREATE TABLE `certificate`  (
 -- ----------------------------
 -- Records of certificate
 -- ----------------------------
-INSERT INTO `certificate` VALUES (1, 0, 0, '2023-06-25 01:25:32');
+INSERT INTO `certificate` VALUES (1, 1, 1, '2023-06-25 19:29:45');
 INSERT INTO `certificate` VALUES (2, NULL, NULL, NULL);
+INSERT INTO `certificate` VALUES (4, 2, 3, '2023-06-25 19:29:45');
 
 -- ----------------------------
 -- Table structure for comment
@@ -58,6 +59,7 @@ CREATE TABLE `comment`  (
 -- ----------------------------
 INSERT INTO `comment` VALUES (1, 0, 0, 'String', 0, 0, '2023-06-25 01:24:24', 0);
 INSERT INTO `comment` VALUES (3, 1, 1, 'String', 0, 0, '2023-06-24 08:00:00', 1);
+INSERT INTO `comment` VALUES (4, 1, 1, 'String', 0, 0, '2023-06-25 19:35:44', 0);
 
 -- ----------------------------
 -- Table structure for course
@@ -80,11 +82,13 @@ CREATE TABLE `course`  (
 -- ----------------------------
 -- Records of course
 -- ----------------------------
-INSERT INTO `course` VALUES (1, 'String', 'String', 0.00, 'String', NULL, NULL, 'String', 0);
-INSERT INTO `course` VALUES (2, 'String', 'String', 0.00, 'String', NULL, NULL, 'String', 0);
+INSERT INTO `course` VALUES (1, 'JAVA', '超级棒', 0.00, '视频课程', '2023-06-25', '2023-06-25', 'String', 1);
+INSERT INTO `course` VALUES (2, 'String', 'String', 0.00, 'String', '2023-06-25', '2023-06-25', 'String', 0);
 INSERT INTO `course` VALUES (3, 'String', 'String', 0.00, 'String', '2023-06-25', '2023-06-25', 'String', 0);
 INSERT INTO `course` VALUES (4, 'String', 'String', 0.00, 'String', '2023-06-24', '2023-06-26', 'String', 0);
 INSERT INTO `course` VALUES (5, 'String', 'String', 10.00, 'String', '2023-06-25', '2023-06-25', 'StriAAng', 2);
+INSERT INTO `course` VALUES (6, 'Python', '世界上最好的语言', 2.00, '视频课程', '2023-06-25', '2023-06-25', '王泽桦', 1);
+INSERT INTO `course` VALUES (7, 'JAVA', '超级棒', 0.00, '视频课程', '2023-06-25', '2023-06-25', 'String', 2);
 
 -- ----------------------------
 -- Table structure for message
@@ -106,13 +110,16 @@ CREATE TABLE `message`  (
 -- ----------------------------
 -- Records of message
 -- ----------------------------
-INSERT INTO `message` VALUES (1, 8, 8, 't1gPD2Iy5W', '2003-08-20 16:32:04');
+INSERT INTO `message` VALUES (1, 1, 1, 'String', '2023-06-25 19:24:21');
 INSERT INTO `message` VALUES (2, 6, 6, 'kMMBscemOh', '2013-12-04 12:35:41');
 INSERT INTO `message` VALUES (3, 10, 10, 'rpHOE1Tp8H', '2004-01-22 13:45:53');
 INSERT INTO `message` VALUES (5, 6, 6, 'pawoYg8wNJ', '2005-08-12 19:58:07');
 INSERT INTO `message` VALUES (6, 9, 9, 'T0WlT9YxZK', '2005-09-23 19:48:40');
 INSERT INTO `message` VALUES (7, 5, 5, 'cS4r2YP6mZ', '2018-01-05 00:25:38');
-INSERT INTO `message` VALUES (9, NULL, NULL, 'String', '2023-06-25 01:37:52');
+INSERT INTO `message` VALUES (15, NULL, NULL, 'A', '2023-06-25 09:08:32');
+INSERT INTO `message` VALUES (16, NULL, NULL, 'String', '2023-06-25 08:56:34');
+INSERT INTO `message` VALUES (17, 2, 3, 'aa', '2023-06-25 19:47:49');
+INSERT INTO `message` VALUES (18, 2, 2, 'AAA', '2023-06-25 19:35:47');
 
 -- ----------------------------
 -- Table structure for power
@@ -138,6 +145,7 @@ INSERT INTO `power` VALUES (6, 'String', NULL);
 INSERT INTO `power` VALUES (8, 'String', NULL);
 INSERT INTO `power` VALUES (9, 'StrAAAing', NULL);
 INSERT INTO `power` VALUES (10, 'StrAAAing', NULL);
+INSERT INTO `power` VALUES (11, 'String', 2);
 
 -- ----------------------------
 -- Table structure for user
@@ -168,5 +176,6 @@ INSERT INTO `user` VALUES (7, 'Clifford Martinez', 'iUtoSZbrWz', 'climarti@gmail
 INSERT INTO `user` VALUES (8, 'Jennifer Stone', '6j57u0dyfg', 'stoje@gmail.com', '管理员', 334.00);
 INSERT INTO `user` VALUES (9, 'Carmen Smith', 'ZDRS41j11T', 'carmensmith@gmail.com', '管理员', 530.00);
 INSERT INTO `user` VALUES (10, 'Deng Lan', 'LRTx44xXAt', 'dlan106@gmail.com', '管理员', 584.00);
+INSERT INTO `user` VALUES (11, 'aa', 'a', 'a', 'String', 0.00);
 
 SET FOREIGN_KEY_CHECKS = 1;
