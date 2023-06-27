@@ -63,6 +63,19 @@ public class R implements Serializable {
         r.message = "exception";
         return r;
     }
+
+    /**
+     * 自定义错误消息
+     * @param code 状态码
+     * @param message 错误消息
+     * @return R
+     */
+    public static R error(Integer code, String message){
+        R r = new R();
+        r.code = code;
+        r.message = message;
+        return r;
+    }
 }
 
 
