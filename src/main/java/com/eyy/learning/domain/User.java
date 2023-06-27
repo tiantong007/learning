@@ -41,6 +41,12 @@ public class User implements Serializable {
      * 余额
      */
     private Double balance;
+    /**
+     * 用户屏蔽
+     * 值为0时显示
+     * 值为1时隐藏
+     */
+    private Integer hidden;
 }
 
 
