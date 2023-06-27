@@ -3,6 +3,7 @@ package com.eyy.learning.util;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.io.StreamTokenizer;
 
 /**
  * 统一返回对象R
@@ -25,6 +26,11 @@ public class R implements Serializable {
      */
     public R setData(Object data) {
         this.data = data;
+        return this;
+    }
+
+    public R setMessage(String message){
+        this.message = message;
         return this;
     }
 
