@@ -75,5 +75,18 @@ public class UserServiceImpl implements UserService {
         boolean del = this.userMapper.deleteById(id) > 0;
         return R.ok().setData(del);
     }
+
+    /**
+     * 根据邮箱查找用户信息
+     * @param email
+     * @return 查找到的行数
+     */
+    @Override
+    public int selectUserByEmail(String email) {
+        if (email == null){
+            return 0;
+        }
+        return userMapper.selectUserByEmail(email);
+    }
 }
 

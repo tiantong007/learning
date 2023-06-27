@@ -51,5 +51,11 @@ public interface UserService {
      */
     R deleteById(Integer id);
 
+    /**
+     * 根据邮箱查找用户信息
+     * @param email
+     * @return 查找到的行数
+     */
+    int selectUserByEmail(String email);
 }
 

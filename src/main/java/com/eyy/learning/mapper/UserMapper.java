@@ -80,6 +80,12 @@ public interface UserMapper {
      */
     int deleteById(Integer id);
 
+    /**
+     * 通过邮箱查找用户
+     * @param email 邮箱
+     * @return 查找到的行数
+     */
+    int selectUserByEmail(String email);
 }
 
 

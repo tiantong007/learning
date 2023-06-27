@@ -9,6 +9,7 @@
         <result property="email" column="email" jdbcType="VARCHAR"/>
         <result property="role" column="role" jdbcType="VARCHAR"/>
         <result property="balance" column="balance" jdbcType="NUMERIC"/>
+        <result property="hidden" column="hidden" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
@@ -134,6 +135,13 @@
         from user
         where id = #{id}
     </delete>
+
+    <!--  根据邮箱查找用户  -->
+    <select id="selectUserByEmail" resultType="int">
+        select count(*)
+        from user
+        where email = #{email}
+    </select>
 
 </mapper>
 
