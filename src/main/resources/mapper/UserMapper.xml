@@ -18,7 +18,8 @@
                password,
                email,
                role,
-               balance
+               balance,
+               hidden
         from user
         where id = #{id}
     </select>
@@ -26,7 +27,7 @@
     <!--查询指定行数据-->
     <select id="queryAll" resultMap="UserMap">
         select
-        id, username, password, email, role, balance
+        id, username, password, email, role, balance, hidden
         from user
         <where>
             <if test="id != null">
