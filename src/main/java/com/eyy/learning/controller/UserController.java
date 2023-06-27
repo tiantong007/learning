@@ -4,6 +4,9 @@ import com.eyy.learning.domain.User;
 import com.eyy.learning.service.UserService;
 import com.eyy.learning.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -51,7 +54,18 @@ public class UserController {
      */
     @PostMapping("insert")
     public R add(@RequestBody User user) {
-        return this.userService.insert(user);
+        if (user.getUsername() == null || user.getPassword() == null || user.getEmail() == null){
+            return R.error(400, "用户名、密码、邮箱不能为空");
+        }
+        if ( userService.selectUserByEmail(user.getEmail()) == 1){
+            return R.error(401, "该邮箱已被注册");
+        }
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if ( !userService.insert(user)){
+            return R.ok().setMessage("用户插入失败");
+        }
+        return R.ok().setMessage("用户插入成功");
     }
 
     /**

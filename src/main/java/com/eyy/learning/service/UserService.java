@@ -33,7 +33,7 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    R insert(User user);
+    boolean insert(User user);
 
     /**
      * 修改数据

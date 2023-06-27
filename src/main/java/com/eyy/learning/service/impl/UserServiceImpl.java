@@ -47,9 +47,9 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public R insert(User user) {
-        this.userMapper.insert(user);
-        return R.ok().setData(user);
+    public boolean insert(User user) {
+        int result = this.userMapper.insert(user);
+        return result > 0;
     }
 
     /**
