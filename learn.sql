@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 1
+ Source Server         : mysql80
  Source Server Type    : MySQL
- Source Server Version : 80033
- Source Host           : localhost:3306
- Source Schema         : learn
+ Source Server Version : 80017
+ Source Host           : localhost:3307
+ Source Schema         : classstudy
 
  Target Server Type    : MySQL
- Target Server Version : 80033
+ Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 25/06/2023 11:51:32
+ Date: 27/06/2023 09:30:45
 */
 
 SET NAMES utf8mb4;
@@ -22,14 +22,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `certificate`;
 CREATE TABLE `certificate`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '证书ID',
-  `user_id` int NULL DEFAULT NULL COMMENT '用户id',
-  `course_id` int NULL DEFAULT NULL COMMENT '课程id',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '发放时间',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  INDEX `course_id`(`course_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                                `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '证书ID',
+                                `user_id` int(11) NULL DEFAULT NULL COMMENT '用户id',
+                                `course_id` int(11) NULL DEFAULT NULL COMMENT '课程id',
+                                `create_time` datetime(0) NULL DEFAULT NULL COMMENT '发放时间',
+                                PRIMARY KEY (`id`) USING BTREE,
+                                INDEX `user_id`(`user_id`) USING BTREE,
+                                INDEX `course_id`(`course_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of certificate
@@ -43,16 +43,16 @@ INSERT INTO `certificate` VALUES (4, 2, 3, '2023-06-25 19:29:45');
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '评论id',
-  `user_id` int NOT NULL COMMENT '用户id',
-  `course_id` int NOT NULL COMMENT '课程id',
-  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '评论内容',
-  `likes` int NULL DEFAULT 0 COMMENT '点赞数',
-  `collect` int NULL DEFAULT 0 COMMENT '收藏数',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '评论时间',
-  `hide` int NOT NULL DEFAULT 0 COMMENT '是否隐藏',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                            `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '评论id',
+                            `user_id` int(11) NOT NULL COMMENT '用户id',
+                            `course_id` int(11) NOT NULL COMMENT '课程id',
+                            `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '评论内容',
+                            `likes` int(11) NULL DEFAULT 0 COMMENT '点赞数',
+                            `collect` int(11) NULL DEFAULT 0 COMMENT '收藏数',
+                            `create_time` datetime(0) NULL DEFAULT NULL COMMENT '评论时间',
+                            `hide` int(11) NOT NULL DEFAULT 0 COMMENT '是否隐藏',
+                            PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of comment
@@ -66,18 +66,18 @@ INSERT INTO `comment` VALUES (4, 1, 1, 'String', 0, 0, '2023-06-25 19:35:44', 0)
 -- ----------------------------
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course`  (
-  `c_id` int NOT NULL AUTO_INCREMENT COMMENT '课程id',
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程名',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程描述',
-  `price` decimal(10, 2) NULL DEFAULT 0.00 COMMENT '课程价格',
-  `type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '图文课程' COMMENT '课程类型',
-  `start_date` date NULL DEFAULT NULL COMMENT '开始日期',
-  `end_date` date NULL DEFAULT NULL COMMENT '结束日期',
-  `teacher` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '任课老师',
-  `techer_id` int NULL DEFAULT NULL COMMENT '老师id',
-  PRIMARY KEY (`c_id`) USING BTREE,
-  INDEX `techer_id`(`techer_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                           `c_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '课程id',
+                           `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程名',
+                           `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程描述',
+                           `price` decimal(10, 2) NULL DEFAULT 0.00 COMMENT '课程价格',
+                           `type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '图文课程' COMMENT '课程类型',
+                           `start_date` date NULL DEFAULT NULL COMMENT '开始日期',
+                           `end_date` date NULL DEFAULT NULL COMMENT '结束日期',
+                           `teacher` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '任课老师',
+                           `techer_id` int(11) NULL DEFAULT NULL COMMENT '老师id',
+                           PRIMARY KEY (`c_id`) USING BTREE,
+                           INDEX `techer_id`(`techer_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of course
@@ -95,17 +95,17 @@ INSERT INTO `course` VALUES (7, 'JAVA', '超级棒', 0.00, '视频课程', '2023
 -- ----------------------------
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '信息id',
-  `u_id` int NULL DEFAULT NULL COMMENT '发送用户id',
-  `r_id` int NULL DEFAULT NULL COMMENT '接收用户id',
-  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发送内容',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '发送时间',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `u_id`(`u_id` ASC) USING BTREE,
-  INDEX `r_id`(`r_id` ASC) USING BTREE,
-  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`r_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                            `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '信息id',
+                            `u_id` int(11) NULL DEFAULT NULL COMMENT '发送用户id',
+                            `r_id` int(11) NULL DEFAULT NULL COMMENT '接收用户id',
+                            `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发送内容',
+                            `create_time` datetime(0) NULL DEFAULT NULL COMMENT '发送时间',
+                            PRIMARY KEY (`id`) USING BTREE,
+                            INDEX `u_id`(`u_id`) USING BTREE,
+                            INDEX `r_id`(`r_id`) USING BTREE,
+                            CONSTRAINT `message_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                            CONSTRAINT `message_ibfk_2` FOREIGN KEY (`r_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of message
@@ -126,12 +126,12 @@ INSERT INTO `message` VALUES (18, 2, 2, 'AAA', '2023-06-25 19:35:47');
 -- ----------------------------
 DROP TABLE IF EXISTS `power`;
 CREATE TABLE `power`  (
-  `p_id` int NOT NULL AUTO_INCREMENT COMMENT '权限id',
-  `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '角色类型',
-  `p_level` int NULL DEFAULT NULL COMMENT '权限等级',
-  PRIMARY KEY (`p_id`) USING BTREE,
-  INDEX `role`(`role` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                          `p_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '权限id',
+                          `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '角色类型',
+                          `p_level` int(11) NULL DEFAULT NULL COMMENT '权限等级',
+                          PRIMARY KEY (`p_id`) USING BTREE,
+                          INDEX `role`(`role`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of power
@@ -152,30 +152,30 @@ INSERT INTO `power` VALUES (11, 'String', 2);
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '用户id',
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户名',
-  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '密码',
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '邮箱',
-  `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '普通用户' COMMENT '用户类型',
-  `balance` decimal(10, 2) NULL DEFAULT 0.00 COMMENT '余额',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `role`(`role` ASC) USING BTREE,
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `power` (`role`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+                         `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+                         `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户名',
+                         `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '密码',
+                         `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '邮箱',
+                         `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '普通用户' COMMENT '用户类型',
+                         `balance` decimal(10, 2) NULL DEFAULT 0.00 COMMENT '余额',
+                         `hidden` int(11) NULL DEFAULT 0,
+                         PRIMARY KEY (`id`) USING BTREE,
+                         INDEX `role`(`role`) USING BTREE,
+                         CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `power` (`role`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'Tang Ziyi', 'pwg0Jjodgv', 'ziyi95@gmail.com', '管理员', 705.00);
-INSERT INTO `user` VALUES (2, 'Raymond Ross', '1leMfEAisA', 'rayross@icloud.com', '管理员', 7.00);
-INSERT INTO `user` VALUES (3, 'Nomura Minato', 'XOO1iYvecv', 'mn5@icloud.com', '普通用户', 734.00);
-INSERT INTO `user` VALUES (4, 'Hsuan Ming Sze', 'oS1JJXkNgW', 'mshs@icloud.com', '普通用户', 55.00);
-INSERT INTO `user` VALUES (5, 'Tong Sze Yu', '1uvKXc3AlF', 'tosy@yahoo.com', '管理员', 928.00);
-INSERT INTO `user` VALUES (6, 'Douglas Garza', 'XtGVddQ6w7', 'garzd@icloud.com', '普通用户', 409.00);
-INSERT INTO `user` VALUES (7, 'Clifford Martinez', 'iUtoSZbrWz', 'climarti@gmail.com', '普通用户', 849.00);
-INSERT INTO `user` VALUES (8, 'Jennifer Stone', '6j57u0dyfg', 'stoje@gmail.com', '管理员', 334.00);
-INSERT INTO `user` VALUES (9, 'Carmen Smith', 'ZDRS41j11T', 'carmensmith@gmail.com', '管理员', 530.00);
-INSERT INTO `user` VALUES (10, 'Deng Lan', 'LRTx44xXAt', 'dlan106@gmail.com', '管理员', 584.00);
-INSERT INTO `user` VALUES (11, 'aa', 'a', 'a', 'String', 0.00);
+INSERT INTO `user` VALUES (1, '20', 'pwg0Jjodgv', 'ziyi95@gmail.com', '管理员', 705.00, 0);
+INSERT INTO `user` VALUES (2, 'Raymond Ross', '1leMfEAisA', 'rayross@icloud.com', '管理员', 7.00, 0);
+INSERT INTO `user` VALUES (3, 'Nomura Minato', 'XOO1iYvecv', 'mn5@icloud.com', '普通用户', 734.00, 0);
+INSERT INTO `user` VALUES (4, 'Hsuan Ming Sze', 'oS1JJXkNgW', 'mshs@icloud.com', '普通用户', 55.00, 0);
+INSERT INTO `user` VALUES (5, 'Tong Sze Yu', '1uvKXc3AlF', 'tosy@yahoo.com', '管理员', 928.00, 1);
+INSERT INTO `user` VALUES (6, 'Douglas Garza', 'XtGVddQ6w7', 'garzd@icloud.com', '普通用户', 409.00, 0);
+INSERT INTO `user` VALUES (7, 'Clifford Martinez', 'iUtoSZbrWz', 'climarti@gmail.com', '普通用户', 849.00, 1);
+INSERT INTO `user` VALUES (8, 'Jennifer Stone', '6j57u0dyfg', 'stoje@gmail.com', '管理员', 334.00, 1);
+INSERT INTO `user` VALUES (9, 'Carmen Smith', 'ZDRS41j11T', 'carmensmith@gmail.com', '管理员', 530.00, 1);
+INSERT INTO `user` VALUES (10, 'Deng Lan', 'LRTx44xXAt', 'dlan106@gmail.com', '管理员', 584.00, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
