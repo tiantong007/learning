@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 27/06/2023 09:30:45
+ Date: 27/06/2023 10:35:21
 */
 
 SET NAMES utf8mb4;
@@ -154,7 +154,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
                          `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
                          `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户名',
-                         `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '密码',
+                         `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '密码',
                          `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '邮箱',
                          `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '普通用户' COMMENT '用户类型',
                          `balance` decimal(10, 2) NULL DEFAULT 0.00 COMMENT '余额',
